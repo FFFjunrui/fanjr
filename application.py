@@ -1,5 +1,5 @@
 # coding: utf-8
-from flask import Flask
+from flask import Flask, request, render_template
 
 import os
 import sys
@@ -10,6 +10,14 @@ from fanjr.config import APP_KEY
 
 app = Flask(__name__)
 app.secret_key = APP_KEY
+
+@app.route('/md', methods=['GET'])
+def md():
+    if request.method == 'GET':
+        with open("./makedown/vim.md") as fd:
+            v = fd.readlines()
+            print(v)
+        return render_template("test.html", **locals())
 
 if __name__ == "__main__":
     print(PROJECT_ROOT)
