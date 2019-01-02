@@ -19,5 +19,18 @@ def md():
             print(v)
         return render_template("test.html", **locals())
 
+@app.route('/milan-kundera', methods=['GET'])
+def job():
+    if request.method == 'GET':
+        return render_template("milan-kundera.html")
+
+@app.route('/index', methods=['GET'])
+def index():
+    if request.method == 'GET':
+        map = [
+            ["米兰-昆德拉", "milankundera"]
+        ]
+        return render_template("index.html", **locals())
+
 if __name__ == "__main__":
     print(PROJECT_ROOT)
