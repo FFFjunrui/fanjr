@@ -104,6 +104,10 @@ let pageroutes = [
     component: () => import('../posts/Mongoengine.md')
   },
   {
+    path: "/MongoEngine/Mongoengine",
+    component: () => import('../posts/Mongoengine.md')
+  },
+  {
     path: "/WORK/MySQL Client 常用操作",
     component: () => import('../posts/MySQL Client 常用操作.md')
   },
@@ -192,7 +196,7 @@ let pageroutes = [
     component: () => import('../posts/数据结构和算法概念.md')
   },
   {
-    path: "/数据结构和算法概念/数据结构和算法概念",
+    path: "/数据结构/数据结构和算法概念",
     component: () => import('../posts/数据结构和算法概念.md')
   },
   {
@@ -289,6 +293,10 @@ let pageroutes = [
   },
   {
     path: "/网络协议/网络协议",
+    component: () => import('../posts/网络协议.md')
+  },
+  {
+    path: "/TCP/IP/网络协议",
     component: () => import('../posts/网络协议.md')
   },
   {
