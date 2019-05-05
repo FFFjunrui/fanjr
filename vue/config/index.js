@@ -1,20 +1,68 @@
-'use strict'
+'use strict';
 // Template version: 1.3.1
 // see http://vuejs-templates.github.io/webpack for documentation.
 
-const path = require('path')
-
+const path = require('path');
+const moment = require('moment');
 module.exports = {
+  comments: {
+    // commetsRepo : 'gihub用户名/comments存储的仓库名'
+    repo: '',
+    // github-light | github-dark
+    theme: 'github-light'
+  },
+  userInfo: {
+    name: 'name',
+    phone: '1XX-XXXX-XXXX',
+    site: 'www.yoursite.com',
+    email: 'youemail@xmail.com',
+    birth: 'December 10,1991',
+    repo: 'DendiSe7enGitHub/blog-comments-repo',
+    theme: 'github-light',
+    skills: [
+      { label: 'HTML', percentage: '80%' },
+      { label: 'CSS3', percentage: '60%' },
+      { label: 'Javascript', percentage: '60%' },
+      { label: 'jQuery', percentage: '50%' },
+      { label: 'React', percentage: '60%' },
+      { label: 'Vue', percentage: '60%' },
+      { label: 'Mini-Program', percentage: '60%' },
+      { label: 'Git', percentage: '70%' },
+      { label: 'Webpack', percentage: '50%' }
+    ],
+    location: 'Shanghai,CN',
+    jobTitle: 'Frontend Developer',
+    description: 'Things we do are all for love'
+  },
+  ladingInfo: {
+    // landing 显示的名称
+    blogName: 'Google',
+    tagA: 'Dreamer',
+    tagB: 'Coder',
+    tagC: 'Writter',
+    github: '',
+    twitter: '',
+    email: '',
+    linkedIn: ''
+  },
+  commitMessage:
+    process.argv.length === 3
+      ? `${process.argv[2]}:[${moment().format(
+          'dddd, MMMM Do YYYY, h:mm:ss a'
+        )}]`
+      : `AutoUpdate:[${moment().format('dddd, MMMM Do YYYY, h:mm:ss a')}]`,
+  distOriginSSh: 'git@github.com:xxx/xxx-blog-xxx.git',
+  deleteRemote: 'git remote rm origin',
+  initLocal: 'git init',
   dev: {
-
     // Paths
-    assetsSubDirectory: 'static',
+    assetsSubDirectory: './',
     assetsPublicPath: '/',
     proxyTable: {},
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST
-    port: 8554, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
+    port: 8080, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
     autoOpenBrowser: false,
     errorOverlay: true,
     notifyOnErrors: true,
@@ -46,11 +94,10 @@ module.exports = {
   build: {
     // Template for index.html
     index: path.resolve(__dirname, '../dist/index.html'),
-
     // Paths
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
-    assetsPublicPath: '/',
+    assetsPublicPath: './',
 
     /**
      * Source Maps
@@ -73,4 +120,4 @@ module.exports = {
     // Set to `true` or `false` to always turn it on or off
     bundleAnalyzerReport: process.env.npm_config_report
   }
-}
+};
